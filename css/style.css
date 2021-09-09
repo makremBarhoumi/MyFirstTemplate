@@ -474,8 +474,45 @@ li:last-child a {
     font-size: 18px;
 }
 
-#footer span {
+#footer span, #footer a {
     color: var(--mainColor);
     font-weight: bold;
+}
+
+#footer a {
+    text-decoration: none;
+    display: block;
+    border: 2px solid var(--mainColor);
+    margin: 50px auto;
+    position: relative;
+    width: 160px;
+    height: 40px;
+    line-height: 36px;
+    text-align: center;
+    overflow: hidden;
+}
+
+#footer a::before {
+    content: attr(data-text);
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    transform: translateX(-100%);
+    transition: 0.3s;
+}
+
+#footer a span {
+    display: block;
+    transition: 0.3s;
+    /* overflow: hidden; */
+}
+
+#footer a:hover::before {
+    transform: translateX(0);
+}
+
+#footer a:hover span {
+    transform: translateX(100%);
 }
 /* End footer */
